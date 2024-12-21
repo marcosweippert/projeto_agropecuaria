@@ -1,0 +1,61 @@
+<!-- templates/produtos/listar_produtos.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-success">Product List</h1>
+            <div>
+                <a href="{% url 'produtos:criar_produto' %}" class="btn btn-dark">Add New Product</a>
+                <a href="{% url 'index' %}" class="btn btn-secondary">Return to Index</a>
+            </div>
+        </div>
+
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Cost</th>
+                    <th>Stock Quantity</th>
+                    <th>Unit</th>
+                    <th>Harvest Date</th>
+                    <th>Minimum Stock Level</th>
+                    <th>Expiration Date</th>
+                    <th>Supplier</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.nome }}</td>
+                    <td>{{ produto.categoria }}</td>
+                    <td>{{ produto.preco }}</td>
+                    <td>{{ produto.custo }}</td>
+                    <td>{{ produto.estoque }}</td>
+                    <td>{{ produto.unidade }}</td>
+                    <td>{{ produto.safra }}</td>
+                    <td>{{ produto.quantidade_minima_estoque }}</td>
+                    <td>{{ produto.validade }}</td>
+                    <td>{{ produto.fornecedor }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

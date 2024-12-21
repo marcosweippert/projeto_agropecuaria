@@ -1,0 +1,130 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Sidebar styling */
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            min-height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+        }
+        .sidebar h5, .sidebar a {
+            color: #fff;
+        }
+        .sidebar a:hover {
+            color: #ffc107;
+            text-decoration: none;
+        }
+
+        /* Dropdown styling */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            margin-left: 5px;
+            background-color: #495057;
+            z-index: 1000;
+            width: 180px;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .dropdown-menu a {
+            color: #fff;
+            padding: 10px 15px;
+            display: block;
+        }
+        .dropdown-menu a:hover {
+            background-color: #6c757d;
+        }
+
+        /* Content area styling */
+        .content {
+            margin-left: 270px; /* Espaço para a sidebar */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column p-3">
+        <h5 class="text-center text-light mb-4">ATS - Agro Trade System</h5>
+
+        <!-- Produtos Section -->
+        <div class="dropdown mb-3">
+            <a class="btn btn-dark btn-block text-left" href="#" role="button">
+                Products
+            </a>
+            <div class="dropdown-menu">
+                <a href="{% url 'produtos:listar_produtos' %}" class="dropdown-item">View Products</a>
+                <a href="{% url 'produtos:criar_produto' %}" class="dropdown-item">Add Product</a>
+            </div>
+        </div>
+
+        <!-- Clientes Section -->
+        <div class="dropdown mb-3">
+            <a class="btn btn-dark btn-block text-left" href="#" role="button">
+                Clients
+            </a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">View Clients</a>
+                <a href="#" class="dropdown-item">Add Client</a>
+            </div>
+        </div>
+
+        <!-- Fornecedores Section -->
+        <div class="dropdown mb-3">
+            <a class="btn btn-dark btn-block text-left" href="#" role="button">
+                Suppliers
+            </a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">View Suppliers</a>
+                <a href="#" class="dropdown-item">Add Supplier</a>
+            </div>
+        </div>
+
+        <!-- Vendas Section -->
+        <div class="dropdown mb-3">
+            <a class="btn btn-dark btn-block text-left" href="#" role="button">
+                Sales Orders
+            </a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">View Sales Orders</a>
+                <a href="#" class="dropdown-item">Create Order</a>
+            </div>
+        </div>
+
+        <!-- Financeiro Section -->
+        <div class="dropdown mb-3">
+            <a class="btn btn-dark btn-block text-left" href="#" role="button">
+                Financial Records
+            </a>
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">View Financial Records</a>
+                <a href="#" class="dropdown-item">Add Financial Record</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h2>ATS - Agro Trade System</h2>
+        <p>Select an option from the sidebar.</p>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

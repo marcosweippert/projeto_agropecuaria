@@ -1,0 +1,120 @@
+<!-- templates/produtos/criar_produto.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    {% load widget_tweaks %}
+    <div class="container my-5">
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white text-center">
+                <h2>Create a New Product</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <!-- Nome do Produto -->
+                    <div class="form-group">
+                        <label for="id_nome">Product Name</label>
+                        <small class="form-text text-muted">Enter the name of the product.</small>
+                        {{ form.nome|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Categoria -->
+                    <div class="form-group">
+                        <label for="id_categoria">Category</label>
+                        <small class="form-text text-muted">Specify the category, e.g., grains, vegetables, etc.</small>
+                        {{ form.categoria|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Preço -->
+                    <div class="form-group">
+                        <label for="id_preco">Price</label>
+                        <small class="form-text text-muted">Enter the selling price per unit.</small>
+                        {{ form.preco|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Custo -->
+                    <div class="form-group">
+                        <label for="id_custo">Cost</label>
+                        <small class="form-text text-muted">Specify the production or acquisition cost.</small>
+                        {{ form.custo|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Estoque -->
+                    <div class="form-group">
+                        <label for="id_estoque">Stock Quantity</label>
+                        <small class="form-text text-muted">Indicate the current stock level available.</small>
+                        {{ form.estoque|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Unidade -->
+                    <div class="form-group">
+                        <label for="id_unidade">Unit</label>
+                        <small class="form-text text-muted">Enter the unit of measurement, e.g., kg, liters.</small>
+                        {{ form.unidade|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Safra -->
+                    <div class="form-group">
+                        <label for="id_safra">Harvest Date</label>
+                        <small class="form-text text-muted">Specify the harvest date of the product.</small>
+                        {{ form.safra|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Descrição -->
+                    <div class="form-group">
+                        <label for="id_descricao">Description</label>
+                        <small class="form-text text-muted">Provide a brief description of the product.</small>
+                        {{ form.descricao|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Foto -->
+                    <div class="form-group">
+                        <label for="id_foto">Product Image</label>
+                        <small class="form-text text-muted">Upload a representative image of the product.</small>
+                        {{ form.foto|add_class:"form-control-file" }}
+                    </div>
+                    
+                    <!-- Quantidade Mínima de Estoque -->
+                    <div class="form-group">
+                        <label for="id_quantidade_minima_estoque">Minimum Stock Level</label>
+                        <small class="form-text text-muted">Set a minimum stock level to monitor replenishment needs.</small>
+                        {{ form.quantidade_minima_estoque|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Validade -->
+                    <div class="form-group">
+                        <label for="id_validade">Expiration Date</label>
+                        <small class="form-text text-muted">Set the expiration date if the product is perishable.</small>
+                        {{ form.validade|add_class:"form-control" }}
+                    </div>
+                    
+                    <!-- Fornecedor -->
+                    <div class="form-group">
+                        <label for="id_fornecedor">Supplier</label>
+                        <small class="form-text text-muted">Enter the name of the supplier, if applicable.</small>
+                        {{ form.fornecedor|add_class:"form-control" }}
+                    </div>
+
+                    <button type="submit" class="btn btn-dark btn-block">Save Product</button>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <a href="{% url 'produtos:listar_produtos' %}" class="btn btn-secondary">Back to Products List</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

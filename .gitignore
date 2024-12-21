@@ -1,0 +1,18 @@
+# Ambiente virtual
+venv/
+.env
+
+# Arquivos compilados do Python
+*.pyc
+__pycache__/
+
+# Banco de dados SQLite (caso esteja usando)
+db.sqlite3
+
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Diretórios de configurações específicas do IDE
+.vscode/
+.idea/
